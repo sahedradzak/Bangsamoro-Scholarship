@@ -63,7 +63,7 @@ export default function SystemSettings() {
         </div>
     );
 
-    const SettingToggle = ({ label, name, help }: { label: string; name: string; help?: string }) => (
+    const SettingToggle = ({ label, name, help }: { label: React.ReactNode; name: string; help?: string }) => (
         <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
             <div>
                 <Label className="text-slate-700 font-medium">{label}</Label>
