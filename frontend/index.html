@@ -8,14 +8,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter';
             margin: 0;
             padding: 0;
             background-color: #020617;
