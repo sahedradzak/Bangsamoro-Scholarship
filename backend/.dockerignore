@@ -1,0 +1,42 @@
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Database
+*.sqlite3
+db.sqlite3
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Static files (will be collected during build)
+staticfiles/
+
+# Tests
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Git
+.git/
+.gitignore
+
+# Docs
+docs/
+*.md

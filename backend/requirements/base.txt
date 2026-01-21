@@ -1,0 +1,15 @@
+Django>=6.0
+djangorestframework
+drf-spectacular
+django-cors-headers
+django-environ
+psycopg[binary]
+django-filter
+django-allauth
+django-guardian
+django-q2
+redis
+django-channels
+whitenoise
+gunicorn
+uvicorn[standard]
