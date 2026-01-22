@@ -15,7 +15,8 @@ import {
     Settings,
     User,
     Bell,
-    Search
+    Search,
+    Bookmark
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -26,9 +27,9 @@ import { Input } from "@/components/ui/input";
 
 const sidebarNavItems = [
     {
-        title: "Overview",
+        title: "Home",
         href: "/dashboard",
-        icon: LayoutDashboard,
+        icon: Home,
     },
     {
         title: "My Applications",
@@ -38,7 +39,7 @@ const sidebarNavItems = [
     {
         title: "Saved Scholarships",
         href: "/dashboard/saved",
-        icon: Home,
+        icon: Bookmark,
     },
     {
         title: "Documents",
