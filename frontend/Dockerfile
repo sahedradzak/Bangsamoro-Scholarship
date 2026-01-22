@@ -6,15 +6,15 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Copy package files
-COPY package.json package-lock.json* ./
+# Copy package files from frontend directory (build context is repo root)
+COPY frontend/package.json frontend/package-lock.json* ./
 RUN npm ci
 
 # Build the application
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-COPY . .
+COPY frontend/ .
 
 # Set build-time environment variables
 ARG NEXT_PUBLIC_API_URL
