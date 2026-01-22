@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
     CreditCard,
@@ -68,7 +69,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <div className="flex min-h-screen flex-col md:flex-row bg-slate-50">
             {/* Mobile Header */}
             <div className="md:hidden flex items-center justify-between p-4 bg-white border-b">
-                <Link href="/" className="font-bold text-xl text-emerald-800">Bangsamoro <span className="text-secondary">Scholarship</span> Portal</Link>
+                <Link href="/" className="font-bold text-xl text-slate-900">Bangsamoro <span className="text-secondary">Scholarship</span> Portal</Link>
                 <Sheet>
                     <SheetTrigger asChild>
                         <Button variant="ghost" size="icon">
@@ -105,16 +106,19 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <aside className="hidden md:flex w-64 flex-col fixed inset-y-0 z-50 bg-white border-r">
                 <div className="h-16 flex items-center px-6 border-b">
                     <Link href="/" className="flex items-center gap-3 group w-full overflow-hidden">
-                        {/* Logo Placeholder */}
-                        <div className="flex-shrink-0 w-9 h-9 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-bold shadow-sm group-hover:bg-emerald-700 transition-colors">
-                            B
-                        </div>
+                        <Image
+                            src="/images/logo.png"
+                            alt="Bangsamoro Scholarship Portal"
+                            width={36}
+                            height={36}
+                            className="flex-shrink-0 w-9 h-9 rounded-full"
+                        />
                         <div className="flex flex-col min-w-0">
-                            <span className="font-bold text-base text-emerald-800 tracking-tight truncate">
+                            <span className="font-bold text-base text-slate-900 tracking-tight truncate">
                                 Bangsamoro
                             </span>
-                            <span className="text-[9px] uppercase font-extrabold text-secondary tracking-wider truncate">
-                                Scholarship Portal
+                            <span className="text-[10px] uppercase font-extrabold text-slate-900 tracking-wider truncate">
+                                <span className="text-secondary">Scholarship</span> Portal
                             </span>
                         </div>
                     </Link>
