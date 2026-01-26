@@ -113,7 +113,7 @@ export default function Home() {
           <h2 className="text-2xl font-bold uppercase tracking-[0.3em] text-muted-foreground mb-12">Trusted Partners</h2>
           <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
             {PARTNERS.map((partner) => (
-              <div key={partner.code} className="group relative flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500">
+              <div key={partner.code} className="group relative flex items-center justify-center transition-all duration-500">
                 <div className="h-16 w-16 relative">
                   <img
                     src={partner.logo}
