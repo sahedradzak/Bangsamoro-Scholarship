@@ -2,7 +2,7 @@ import Header from "@/components/layouts/Header";
 import Footer from "@/components/layouts/Footer";
 import Hero from "@/components/features/Hero";
 import FeaturedScholarships from "@/components/features/FeaturedScholarships";
-import { STATS, SUCCESS_STORIES } from "@/lib/mock-data";
+import { STATS, SUCCESS_STORIES, PARTNERS } from "@/lib/mock-data";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, UserPlus, Search, ClipboardList } from "lucide-react";
 import Link from "next/link";
@@ -111,10 +111,16 @@ export default function Home() {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold uppercase tracking-[0.3em] text-muted-foreground mb-12">Trusted Partners</h2>
-          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            {['MBHTE', 'MOST', 'MOH', 'CHED', 'TESDA'].map((p) => (
-              <div key={p} className="text-2xl font-black text-foreground/40 hover:text-primary transition-colors cursor-default tracking-tighter">
-                {p}
+          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
+            {PARTNERS.map((partner) => (
+              <div key={partner.code} className="group relative flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500">
+                <div className="h-16 w-16 relative">
+                  <img
+                    src={partner.logo}
+                    alt={partner.code}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
               </div>
             ))}
           </div>
