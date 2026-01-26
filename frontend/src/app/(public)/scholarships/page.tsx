@@ -32,25 +32,25 @@ export default function ScholarshipDirectory() {
             </section>
 
             {/* Main Content */}
-            <section className="container mx-auto px-4 -mt-16 pb-24">
+            <section className="container mx-auto px-4 mt-8 pb-24">
                 <div className="flex flex-col gap-8 lg:flex-row">
                     {/* Filters Sidebar - Tablet/Desktop */}
                     <aside className="hidden lg:block w-80 space-y-6">
-                        <div className="rounded-3xl border bg-white p-8 shadow-sm whitespace-normal">
+                        <div className="rounded-3xl border bg-white p-6 shadow-sm whitespace-normal">
                             <div className="flex items-center justify-between mb-8 pb-4 border-b">
                                 <h2 className="text-xl font-bold text-primary uppercase">Filters</h2>
-                                <Button variant="ghost" size="sm" className="text-xs font-bold text-secondary uppercase hover:text-primary">Clear All</Button>
+                                <Button variant="ghost" size="sm" className="text-sm font-bold text-secondary uppercase hover:text-primary">Clear All</Button>
                             </div>
 
                             <div className="space-y-10">
                                 {/* Search */}
                                 <div>
-                                    <h3 className="mb-4 text-xs font-black uppercase tracking-widest text-muted-foreground border-l-4 border-secondary pl-3">Search</h3>
+                                    <h3 className="mb-4 text-sm font-black uppercase tracking-widest text-muted-foreground border-l-4 border-secondary pl-3">Search</h3>
                                     <div className="relative">
                                         <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                                         <Input
                                             placeholder="Program name..."
-                                            className="pl-10 h-11 rounded-xl border-muted focus:border-primary focus:ring-primary"
+                                            className="pl-10 h-11 text-base rounded-xl border-muted focus:border-primary focus:ring-primary"
                                             value={searchQuery}
                                             onChange={(e) => setSearchQuery(e.target.value)}
                                         />
@@ -59,14 +59,14 @@ export default function ScholarshipDirectory() {
 
                                 {/* Provider */}
                                 <div>
-                                    <h3 className="mb-4 text-xs font-black uppercase tracking-widest text-muted-foreground border-l-4 border-secondary pl-3">Provider</h3>
+                                    <h3 className="mb-4 text-sm font-black uppercase tracking-widest text-muted-foreground border-l-4 border-secondary pl-3">Provider</h3>
                                     <div className="space-y-3">
                                         {['MBHTE', 'MOST', 'MOH', 'CHED', 'TESDA'].map((p) => (
                                             <label key={p} className="flex items-center gap-3 cursor-pointer group">
                                                 <div className="h-5 w-5 rounded border border-muted group-hover:border-primary transition-colors flex items-center justify-center">
                                                     <Check className="h-3 w-3 text-primary opacity-0 group-hover:opacity-100" />
                                                 </div>
-                                                <span className="text-sm font-semibold text-muted-foreground group-hover:text-primary transition-colors">{p}</span>
+                                                <span className="text-base font-semibold text-muted-foreground group-hover:text-primary transition-colors">{p}</span>
                                             </label>
                                         ))}
                                     </div>
@@ -74,12 +74,12 @@ export default function ScholarshipDirectory() {
 
                                 {/* Academic Level */}
                                 <div>
-                                    <h3 className="mb-4 text-xs font-black uppercase tracking-widest text-muted-foreground border-l-4 border-secondary pl-3">Level</h3>
+                                    <h3 className="mb-4 text-sm font-black uppercase tracking-widest text-muted-foreground border-l-4 border-secondary pl-3">Level</h3>
                                     <div className="space-y-3">
                                         {['Senior High School', 'College', 'Graduate', 'Tech-Voc'].map((l) => (
                                             <label key={l} className="flex items-center gap-3 cursor-pointer group">
                                                 <div className="h-5 w-5 rounded-full border border-muted group-hover:border-primary transition-colors"></div>
-                                                <span className="text-sm font-semibold text-muted-foreground group-hover:text-primary transition-colors">{l}</span>
+                                                <span className="text-base font-semibold text-muted-foreground group-hover:text-primary transition-colors">{l}</span>
                                             </label>
                                         ))}
                                     </div>
@@ -129,7 +129,7 @@ export default function ScholarshipDirectory() {
 
                         {/* Pagination */}
                         {filteredScholarships.length > 0 && (
-                            <div className="flex items-center justify-center gap-2 pt-12">
+                            <div className="flex items-center justify-end gap-2 pt-12">
                                 <Button variant="outline" size="icon" disabled className="rounded-xl">◀</Button>
                                 <Button variant="outline" className="h-10 w-10 rounded-xl bg-primary text-white border-primary">1</Button>
                                 <Button variant="outline" className="h-10 w-10 rounded-xl hover:bg-primary/5">2</Button>
