@@ -42,10 +42,10 @@ export default function AboutPage() {
                                     Our Mission
                                     <span className="absolute bottom-0 left-0 w-full h-1 bg-amber-400 rounded-full"></span>
                                 </h2>
-                                <p className="text-lg text-slate-700 leading-relaxed mb-6 text-justify">
+                                <p className="text-lg text-slate-700 leading-relaxed mb-6 text-justify italic">
                                     The Bangsamoro <span className="text-secondary">Scholarship</span> Portal aims to create a unified, accessible platform that democratizes access to education. We bridge the gap between aspiring scholars and the diverse scholarship opportunities offered by BARMM government agencies and partner institutions.
                                 </p>
-                                <p className="text-lg text-slate-700 leading-relaxed text-justify">
+                                <p className="text-lg text-slate-700 leading-relaxed text-justify italic">
                                     By fostering educational excellence, we are investing in the human capital that will drive long-term peace and development in the Bangsamoro region.
                                 </p>
                             </div>
