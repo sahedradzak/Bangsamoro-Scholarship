@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
     return (
-        <section className="relative overflow-hidden bg-background py-20 lg:py-32">
+        <section className="relative overflow-hidden bg-background pt-2 pb-20 lg:pt-6 lg:pb-32">
             {/* Background patterns */}
             <div className="absolute inset-0 z-0 opacity-10">
                 <div className="absolute -left-20 -top-20 h-80 w-80 rounded-full bg-primary blur-3xl"></div>
@@ -25,7 +25,7 @@ export default function Hero() {
                             Discover <span className="text-secondary">Scholarships</span>
                         </h1>
 
-                        <p className="max-w-xl text-lg text-muted-foreground md:text-xl leading-relaxed">
+                        <p className="max-w-xl text-lg text-muted-foreground md:text-xl leading-relaxed italic">
                             Your one-stop platform to discover opportunities, build your academic profile, and connect with a community of scholars shaping the future of Bangsamoro.
                         </p>
 
@@ -35,10 +35,10 @@ export default function Hero() {
                                 <input
                                     type="text"
                                     placeholder="Search scholarships..."
-                                    className="h-14 w-full rounded-xl border border-border bg-white pl-10 pr-4 shadow-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                                    className="h-12 w-full rounded-xl border border-border bg-white pl-10 pr-4 shadow-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                                 />
                             </div>
-                            <Button size="lg" className="h-14 px-8 bg-primary text-white hover:bg-primary/90">
+                            <Button className="h-12 px-8 bg-primary text-white hover:bg-primary/90">
                                 Browse All <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
                         </div>
@@ -62,15 +62,16 @@ export default function Hero() {
                         className="relative"
                     >
                         <div className="relative z-10 overflow-hidden rounded-3xl border shadow-2xl">
-                            {/* Replace with a generated image later */}
-                            <div className="aspect-[4/3] bg-muted flex items-center justify-center relative overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/10"></div>
-                                <div className="text-center p-8 space-y-4">
-                                    <div className="mx-auto h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center">
-                                        <div className="h-12 w-12 rounded-full bg-primary/20 animate-pulse"></div>
-                                    </div>
-                                    <h3 className="text-xl font-bold">Empowering the Future</h3>
-                                    <p className="text-sm text-muted-foreground">"Education is the most powerful weapon which you can use to change the world."</p>
+                            <div className="aspect-[4/3] relative overflow-hidden group">
+                                <img
+                                    src="/images/hero-students.png"
+                                    alt="Diverse Bangsamoro students on a university campus"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
+                                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    <h3 className="text-xl font-bold mb-1">Empowering the Future</h3>
+                                    <p className="text-sm text-white/90 italic">"Education is the most powerful weapon which you can use to change the world."</p>
                                 </div>
                             </div>
                         </div>
