@@ -31,8 +31,8 @@ export default function ScholarshipDetailPage({ params }: { params: Promise<{ id
     const statusColor = scholarship.status === "Open"
         ? "bg-emerald-500"
         : scholarship.status === "Closing Soon"
-        ? "bg-amber-500"
-        : "bg-slate-500";
+            ? "bg-amber-500"
+            : "bg-slate-500";
 
     return (
         <div className="min-h-screen bg-white flex flex-col font-sans text-slate-900">
@@ -40,7 +40,7 @@ export default function ScholarshipDetailPage({ params }: { params: Promise<{ id
 
             <main className="flex-grow">
                 {/* Hero Section with Curved Background */}
-                <section className="bg-emerald-900 text-white pt-24 pb-32 md:pt-32 md:pb-40 relative overflow-hidden">
+                <section className="bg-emerald-900 text-white pt-8 pb-20 md:pt-12 md:pb-32 relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
                         <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
                             <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white" />
@@ -333,9 +333,9 @@ export default function ScholarshipDetailPage({ params }: { params: Promise<{ id
 
                                             <Separator />
 
-                                            <div className="space-y-3">
-                                                <Link href={`/scholarships/${scholarship.id}/apply`}>
-                                                    <Button className="w-full bg-emerald-600 hover:bg-emerald-700 h-12 text-lg shadow-lg shadow-emerald-200">
+                                            <div className="space-y-4">
+                                                <Link href={`/scholarships/${scholarship.id}/apply`} className="w-full block">
+                                                    <Button className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-lg shadow-emerald-200">
                                                         Apply Now
                                                     </Button>
                                                 </Link>
