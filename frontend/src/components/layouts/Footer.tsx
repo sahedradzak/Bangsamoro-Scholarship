@@ -26,7 +26,7 @@ export default function Footer() {
                                 </span>
                             </div>
                         </Link>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
+                        <p className="text-sm text-muted-foreground leading-relaxed text-justify">
                             Bridging Opportunities and the Bangsamoro Youth through accessible education and simplified scholarship opportunities across the region.
                         </p>
                         <div className="flex gap-4">
