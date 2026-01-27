@@ -4,6 +4,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, CheckCircle2, FileText, Router, Save, UploadCloud } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -22,6 +23,23 @@ const STEPS = [
     { id: 4, title: "Documents", description: "Upload requirements" },
     { id: 5, title: "Review", description: "Verify & Submit" }
 ];
+
+import { motion, AnimatePresence } from "framer-motion";
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+};
 
 export default function ApplicationFormPage() {
     const params = useParams();
@@ -45,17 +63,30 @@ export default function ApplicationFormPage() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-slate-50 py-8 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
                 {/* Header */}
-                <div className="mb-8">
+                <div className="mb-6">
                     <Link href={`/scholarships/${params.id}`} className="flex items-center text-sm font-medium text-emerald-600 hover:text-emerald-700 mb-4 transition-colors">
                         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Scholarship Details
                     </Link>
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                        <div>
-                            <h1 className="text-3xl font-bold text-slate-900">Application Form</h1>
-                            <p className="text-slate-600 mt-1">Applying for: <span className="font-semibold text-emerald-700">{scholarship.title}</span></p>
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div className="flex items-center gap-5">
+                            {scholarship.logo && (
+                                <div className="h-16 w-16 flex items-center justify-center">
+                                    <Image
+                                        src={scholarship.logo}
+                                        alt={scholarship.provider}
+                                        width={64}
+                                        height={64}
+                                        className="w-full h-full object-contain mix-blend-multiply"
+                                    />
+                                </div>
+                            )}
+                            <div>
+                                <h1 className="text-3xl font-bold text-slate-900">Application Form</h1>
+                                <p className="text-slate-600 mt-1">Applying for: <span className="font-semibold text-emerald-700">{scholarship.title}</span></p>
+                            </div>
                         </div>
                         <div className="text-sm text-slate-500 bg-white px-4 py-2 rounded-lg border shadow-sm">
                             Deadline: <span className="font-bold text-red-600">{scholarship.deadline}</span>
@@ -64,7 +95,7 @@ export default function ApplicationFormPage() {
                 </div>
 
                 {/* Stepper */}
-                <div className="mb-8">
+                <div className="mb-6">
                     <div className="hidden md:flex justify-between">
                         {STEPS.map((step) => (
                             <div key={step.id} className={`flex flex-col items-center relative z-10 w-full ${step.id !== STEPS.length ? 'after:content-[""] after:h-[2px] after:w-full after:bg-slate-200 after:absolute after:top-4 after:left-1/2 after:-z-10' : ''}`}>
@@ -87,59 +118,84 @@ export default function ApplicationFormPage() {
                 </div>
 
                 {/* Form Content */}
-                <Card className="border-slate-200 shadow-sm border-t-4 border-t-emerald-600">
-                    <CardHeader>
-                        <CardTitle>{STEPS[currentStep - 1].title}</CardTitle>
-                        <CardDescription>{STEPS[currentStep - 1].description}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-6">
+                <Card className="border-slate-200 shadow-sm border-t-4 border-t-emerald-600 relative overflow-hidden">
+                    {/* Background Logo Watermark */}
+                    <div className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 opacity-[0.4] transition-all duration-500 ${scholarship.provider === 'TESDA' ? 'w-[600px] h-[600px]' : 'w-[400px] h-[400px]'
+                        }`}>
+                        <Image
+                            src={scholarship.logo}
+                            alt=""
+                            width={scholarship.provider === 'TESDA' ? 600 : 400}
+                            height={scholarship.provider === 'TESDA' ? 600 : 400}
+                            className="w-full h-full object-contain mix-blend-multiply"
+                        />
+                    </div>
+
+                    <CardContent className="p-6 md:p-8 space-y-6 relative z-10">
                         {/* Step 1: Personal Info */}
                         {currentStep === 1 && (
-                            <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
+                            <motion.div
+                                variants={containerVariants}
+                                initial="hidden"
+                                animate="visible"
+                                className="space-y-6"
+                            >
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                    <div className="space-y-2">
+                                    <motion.div variants={itemVariants} className="space-y-2">
                                         <Label htmlFor="firstName">First Name</Label>
-                                        <Input id="firstName" placeholder="Juan" />
-                                    </div>
-                                    <div className="space-y-2">
+                                        <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
+                                            <Input id="firstName" placeholder="Juan" className="focus-visible:ring-emerald-500 transition-all" />
+                                        </motion.div>
+                                    </motion.div>
+                                    <motion.div variants={itemVariants} className="space-y-2">
                                         <Label htmlFor="middleName">Middle Name</Label>
-                                        <Input id="middleName" placeholder="Santos" />
-                                    </div>
-                                    <div className="space-y-2">
+                                        <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
+                                            <Input id="middleName" placeholder="Santos" className="focus-visible:ring-emerald-500 transition-all" />
+                                        </motion.div>
+                                    </motion.div>
+                                    <motion.div variants={itemVariants} className="space-y-2">
                                         <Label htmlFor="lastName">Last Name</Label>
-                                        <Input id="lastName" placeholder="Dela Cruz" />
-                                    </div>
+                                        <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
+                                            <Input id="lastName" placeholder="Dela Cruz" className="focus-visible:ring-emerald-500 transition-all" />
+                                        </motion.div>
+                                    </motion.div>
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div className="space-y-2">
+                                    <motion.div variants={itemVariants} className="space-y-2">
                                         <Label htmlFor="dob">Date of Birth</Label>
-                                        <Input id="dob" type="date" />
-                                    </div>
-                                    <div className="space-y-2">
+                                        <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
+                                            <Input id="dob" type="date" className="focus-visible:ring-emerald-500 transition-all" />
+                                        </motion.div>
+                                    </motion.div>
+                                    <motion.div variants={itemVariants} className="space-y-2">
                                         <Label htmlFor="gender">Gender</Label>
-                                        <Select>
-                                            <SelectTrigger>
-                                                <SelectValue placeholder="Select gender" />
-                                            </SelectTrigger>
-                                            <SelectContent>
-                                                <SelectItem value="male">Male</SelectItem>
-                                                <SelectItem value="female">Female</SelectItem>
-                                            </SelectContent>
-                                        </Select>
-                                    </div>
+                                        <motion.div whileHover={{ scale: 1.01 }}>
+                                            <Select>
+                                                <SelectTrigger className="focus:ring-emerald-500 transition-all">
+                                                    <SelectValue placeholder="Select gender" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="male">Male</SelectItem>
+                                                    <SelectItem value="female">Female</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </motion.div>
+                                    </motion.div>
                                 </div>
-                                <Separator />
-                                <div className="space-y-2">
-                                    <Label>Permanent Address</Label>
+                                <motion.div variants={itemVariants}>
+                                    <Separator />
+                                </motion.div>
+                                <motion.div variants={itemVariants} className="space-y-4">
+                                    <Label className="text-base font-semibold">Permanent Address</Label>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <Input placeholder="Region (BARMM)" />
-                                        <Input placeholder="Province" />
-                                        <Input placeholder="City / Municipality" />
-                                        <Input placeholder="Barangay" />
-                                        <Input placeholder="House No. / Street" className="md:col-span-2" />
+                                        <Input placeholder="Region (BARMM)" className="focus-visible:ring-emerald-500 transition-all" />
+                                        <Input placeholder="Province" className="focus-visible:ring-emerald-500 transition-all" />
+                                        <Input placeholder="City / Municipality" className="focus-visible:ring-emerald-500 transition-all" />
+                                        <Input placeholder="Barangay" className="focus-visible:ring-emerald-500 transition-all" />
+                                        <Input placeholder="House No. / Street" className="md:col-span-2 focus-visible:ring-emerald-500 transition-all" />
                                     </div>
-                                </div>
-                            </div>
+                                </motion.div>
+                            </motion.div>
                         )}
 
                         {/* Step 2: Family Background */}
