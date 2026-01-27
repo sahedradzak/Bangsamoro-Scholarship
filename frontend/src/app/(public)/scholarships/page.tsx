@@ -22,7 +22,7 @@ export default function ScholarshipDirectory() {
             <Header />
 
             {/* Page Header */}
-            <section className="bg-primary pt-20 pb-32 text-white">
+            <section className="bg-primary pt-20 pb-20 text-white">
                 <div className="container mx-auto px-4 text-center">
                     <h1 className="text-4xl font-extrabold tracking-tight md:text-6xl uppercase mb-6 shadow-text">Browse <span className="text-secondary">Scholarships</span></h1>
                     <p className="text-primary-foreground/80 max-w-2xl mx-auto text-lg leading-relaxed">
@@ -32,7 +32,7 @@ export default function ScholarshipDirectory() {
             </section>
 
             {/* Main Content */}
-            <section className="container mx-auto px-4 mt-8 pb-24">
+            <section className="container mx-auto px-4 mt-6 pb-4">
                 <div className="flex flex-col gap-8 lg:flex-row">
                     {/* Filters Sidebar - Tablet/Desktop */}
                     <aside className="hidden lg:block w-80 space-y-6">
@@ -129,7 +129,7 @@ export default function ScholarshipDirectory() {
 
                         {/* Pagination */}
                         {filteredScholarships.length > 0 && (
-                            <div className="flex items-center justify-end gap-2 pt-12">
+                            <div className="flex items-center justify-end gap-2 pt-6">
                                 <Button variant="outline" size="icon" disabled className="rounded-xl">◀</Button>
                                 <Button variant="outline" className="h-10 w-10 rounded-xl bg-primary text-white border-primary">1</Button>
                                 <Button variant="outline" className="h-10 w-10 rounded-xl hover:bg-primary/5">2</Button>

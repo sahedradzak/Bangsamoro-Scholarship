@@ -3,15 +3,13 @@
 import { Button } from "@/components/ui/button";
 import { Search, ArrowRight, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { SCHOLARS_DIRECTORY } from "@/lib/mock-data";
+import Image from "next/image";
 
 export default function Hero() {
     return (
-        <section className="relative overflow-hidden bg-background pt-2 pb-20 lg:pt-6 lg:pb-32">
-            {/* Background patterns */}
-            <div className="absolute inset-0 z-0 opacity-10">
-                <div className="absolute -left-20 -top-20 h-80 w-80 rounded-full bg-primary blur-3xl"></div>
-                <div className="absolute right-0 top-1/2 h-96 w-96 rounded-full bg-secondary blur-3xl"></div>
-            </div>
+        <section className="relative overflow-hidden bg-background pt-2 pb-6 lg:pt-4 lg:pb-8">
+
 
             <div className="container relative z-10 mx-auto px-4">
                 <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
@@ -45,8 +43,15 @@ export default function Hero() {
 
                         <div className="flex items-center gap-4 text-sm font-medium">
                             <div className="flex -space-x-3">
-                                {[1, 2, 3, 4].map((i) => (
-                                    <div key={i} className="h-10 w-10 rounded-full border-2 border-background bg-muted"></div>
+                                {SCHOLARS_DIRECTORY.slice(0, 4).map((scholar) => (
+                                    <div key={scholar.id} className="h-10 w-10 rounded-full border-2 border-background bg-muted overflow-hidden relative">
+                                        <Image
+                                            src={scholar.avatar}
+                                            alt="Bangsamoro Scholar"
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </div>
                                 ))}
                             </div>
                             <p className="text-muted-foreground">
@@ -64,48 +69,19 @@ export default function Hero() {
                         <div className="relative z-10 overflow-hidden rounded-3xl border shadow-2xl">
                             <div className="aspect-[4/3] relative overflow-hidden group">
                                 <img
-                                    src="/images/hero-students.png"
-                                    alt="Diverse Bangsamoro students on a university campus"
+                                    src="/images/hero-foundation-day.jpg"
+                                    alt="Bangsamoro Foundation Day 2026 celebration"
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
                                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                                    <h3 className="text-xl font-bold mb-1">Empowering the Future</h3>
-                                    <p className="text-sm text-white/90 italic">"Education is the most powerful weapon which you can use to change the world."</p>
+                                    <h3 className="text-3xl font-bold mb-1">Empowering the Future</h3>
+                                    <p className="text-lg text-white/90 italic">"Education is the most powerful weapon which you can use to change the world."</p>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Floating UI Elements for "Wow" factor */}
-                        <motion.div
-                            animate={{ y: [0, -10, 0] }}
-                            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                            className="absolute -right-6 top-10 z-20 hidden rounded-2xl bg-white p-4 shadow-xl border md:block"
-                        >
-                            <div className="flex items-center gap-3">
-                                <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                                    <CheckCircle className="h-5 w-5" />
-                                </div>
-                                <div>
-                                    <p className="text-xs font-bold">Application Approved</p>
-                                    <p className="text-[10px] text-muted-foreground">AHME Scholarship 2026</p>
-                                </div>
-                            </div>
-                        </motion.div>
 
-                        <motion.div
-                            animate={{ y: [0, 10, 0] }}
-                            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-                            className="absolute -left-10 bottom-10 z-20 hidden rounded-2xl bg-white p-4 shadow-xl border md:block"
-                        >
-                            <div className="space-y-2">
-                                <p className="text-xs font-bold">New Scholarship Alert</p>
-                                <div className="flex items-center gap-2">
-                                    <div className="h-8 w-8 rounded bg-primary/10 flex items-center justify-center font-bold text-primary text-[10px]">BASE</div>
-                                    <p className="text-[10px] text-muted-foreground">MOST Merit Program</p>
-                                </div>
-                            </div>
-                        </motion.div>
                     </motion.div>
                 </div>
             </div>

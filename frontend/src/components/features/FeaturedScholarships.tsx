@@ -8,7 +8,7 @@ export default function FeaturedScholarships() {
     const featured = SCHOLARSHIPS.slice(0, 3);
 
     return (
-        <section className="bg-muted/30 py-24">
+        <section className="bg-muted/30 pt-6 pb-6">
             <div className="container mx-auto px-4">
                 <div className="mb-16 flex flex-col items-center justify-between gap-6 md:flex-row">
                     <div className="text-center md:text-left">

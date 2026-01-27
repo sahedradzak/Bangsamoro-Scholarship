@@ -4,7 +4,7 @@ import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react"
 
 export default function Footer() {
     return (
-        <footer className="border-t bg-muted/30 pt-16 pb-8">
+        <footer className="border-t bg-muted/30 pt-4 pb-4">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-4 whitespace-normal">
                     {/* Brand Column */}
@@ -116,7 +116,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-16 flex flex-col items-center justify-between gap-6 border-t pt-8 md:flex-row">
+                <div className="mt-4 flex flex-col items-center justify-between gap-6 border-t pt-8 md:flex-row">
                     <p className="text-xs text-muted-foreground text-center md:text-left">
                         © 2026 Bangsamoro Scholarship Portal. All rights reserved. Built by MoroTech.
                     </p>

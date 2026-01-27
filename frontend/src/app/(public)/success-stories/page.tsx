@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { ArrowRight, Quote } from "lucide-react";
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -19,11 +20,11 @@ export default function SuccessStoriesPage() {
         <div className="min-h-screen bg-slate-50 flex flex-col font-sans text-slate-900">
             <Header />
 
-            <main className="flex-grow pt-24 pb-20">
+            <main className="flex-grow pt-8 pb-12">
                 <div className="container mx-auto px-4 md:px-6">
 
                     {/* Page Header */}
-                    <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div className="text-center max-w-3xl mx-auto mb-6 space-y-2">
                         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
                             Transforming Lives
                         </h1>
@@ -33,26 +34,28 @@ export default function SuccessStoriesPage() {
                     </div>
 
                     {/* Featured Story */}
-                    <section className="mb-20">
-                        <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-slate-200">
+                    <section className="mb-6">
+                        <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md">
                             <div className="grid md:grid-cols-2">
-                                <div className="relative h-64 md:h-auto bg-slate-200">
-                                    {/* Placeholder for image - using div for now as actual images are not available */}
-                                    <div className="absolute inset-0 flex items-center justify-center bg-emerald-100 text-emerald-800 font-bold text-2xl">
-                                        Photo of {featuredStory.name}
-                                    </div>
+                                <div className="relative h-56 md:h-auto overflow-hidden">
+                                    <Image
+                                        src={featuredStory.image}
+                                        alt={featuredStory.name}
+                                        fill
+                                        className="object-cover object-top transition-transform duration-700 hover:scale-105"
+                                    />
                                 </div>
-                                <div className="p-8 md:p-12 flex flex-col justify-center">
-                                    <div className="mb-6">
-                                        <Badge className="bg-emerald-600 hover:bg-emerald-700 mb-4">Featured Story</Badge>
-                                        <h2 className="text-3xl font-bold text-slate-900 mb-2">
+                                <div className="p-6 md:p-10 flex flex-col justify-center">
+                                    <div className="mb-4">
+                                        <Badge className="bg-emerald-600 hover:bg-emerald-700 mb-3">Featured Story</Badge>
+                                        <h2 className="text-2xl font-bold text-slate-900 mb-2">
                                             "From a Small Barangay to Licensed Nurse"
                                         </h2>
                                         <p className="text-emerald-700 font-medium text-lg">{featuredStory.name}</p>
                                         <p className="text-slate-500">{featuredStory.role}</p>
                                     </div>
 
-                                    <blockquote className="relative mb-8 pl-6 border-l-4 border-emerald-400 text-slate-700 text-lg leading-relaxed">
+                                    <blockquote className="relative mb-6 pl-6 border-l-4 border-emerald-400 text-slate-700 text-lg leading-relaxed">
                                         <Quote className="absolute -top-2 -left-3 h-6 w-6 text-emerald-200 -z-10 bg-white" />
                                         "{featuredStory.quote}"
                                     </blockquote>
@@ -65,11 +68,11 @@ export default function SuccessStoriesPage() {
                         </div>
                     </section>
 
-                    <Separator className="my-16" />
+                    <Separator className="my-2" />
 
                     {/* Other Stories Grid */}
                     <section>
-                        <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+                        <div className="flex flex-col md:flex-row justify-between items-end mb-6 gap-4">
                             <div>
                                 <h2 className="text-3xl font-bold text-slate-900 mb-2">More Inspiring Stories</h2>
                                 <p className="text-slate-600">Discover how education is empowering the next generation.</p>
@@ -82,11 +85,14 @@ export default function SuccessStoriesPage() {
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {otherStories.map((story) => (
-                                <Card key={story.id} className="group hover:shadow-lg transition-all duration-300 border-slate-200 overflow-hidden">
-                                    <div className="h-48 bg-slate-200 relative">
-                                        <div className="absolute inset-0 flex items-center justify-center bg-emerald-50 text-emerald-800 font-medium">
-                                            Photo of {story.name}
-                                        </div>
+                                <Card key={story.id} className="group hover:shadow-xl transition-all duration-300 border-slate-200 overflow-hidden bg-white shadow-sm">
+                                    <div className="h-40 relative overflow-hidden">
+                                        <Image
+                                            src={story.image}
+                                            alt={story.name}
+                                            fill
+                                            className="object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                                        />
                                     </div>
                                     <CardContent className="p-6">
                                         <div className="mb-3">

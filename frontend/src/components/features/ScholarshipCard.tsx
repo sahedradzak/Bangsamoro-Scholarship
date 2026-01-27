@@ -14,13 +14,19 @@ interface ScholarshipCardProps {
         status: string;
         level: string;
         location: string;
+        logo: string;
     };
 }
 
 export default function ScholarshipCard({ scholarship }: ScholarshipCardProps) {
     return (
-        <div className="group relative rounded-3xl border border-slate-200 bg-white p-2 shadow-sm transition-all duration-300 ease-out hover:shadow-2xl hover:shadow-slate-200/50 hover:-translate-y-2 hover:border-slate-300">
-            <div className="flex flex-col h-full p-6">
+        <div className="group relative rounded-3xl border border-slate-200 bg-white p-2 shadow-sm transition-all duration-300 ease-out hover:shadow-2xl hover:shadow-slate-200/50 hover:-translate-y-2 hover:border-slate-300 overflow-hidden">
+            {/* Background Logo Watermark - Centered with Original Colors at 30% Opacity */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 opacity-[0.3] pointer-events-none z-0 group-hover:opacity-[0.45] transition-opacity duration-500">
+                <img src={scholarship.logo} alt="" className="w-full h-full object-contain" />
+            </div>
+
+            <div className="flex flex-col h-full p-6 relative z-10">
                 <div className="mb-6 flex items-start justify-between">
                     <span className="text-lg font-bold text-primary">
                         {scholarship.provider}

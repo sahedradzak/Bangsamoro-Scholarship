@@ -17,7 +17,7 @@ export default function AboutPage() {
 
             <main className="flex-grow">
                 {/* Hero Section */}
-                <section className="bg-emerald-900 text-white pt-24 pb-20 md:pt-32 md:pb-28 relative overflow-hidden">
+                <section className="bg-emerald-900 text-white pt-16 pb-12 md:pt-20 md:pb-16 relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
                         <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
                             <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white" />
@@ -34,7 +34,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* Mission Section */}
-                <section className="py-20 bg-slate-50">
+                <section className="py-10 bg-slate-50">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="grid md:grid-cols-2 gap-12 items-center">
                             <div>
@@ -74,7 +74,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* Features Section */}
-                <section className="py-20">
+                <section className="py-10">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="text-center max-w-3xl mx-auto mb-16">
                             <h2 className="text-3xl font-bold text-slate-900 mb-4">What We Do</h2>
@@ -120,7 +120,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* Partners Section */}
-                <section className="py-20 bg-emerald-50/50 border-y border-emerald-100">
+                <section className="py-10 bg-emerald-50/50 border-y border-emerald-100">
                     <div className="container mx-auto px-4 md:px-6 text-center">
                         <h2 className="text-3xl font-bold text-slate-900 mb-12">Our Partner Agencies</h2>
 
@@ -139,7 +139,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* Team Section (Placeholder) */}
-                <section className="py-20">
+                <section className="py-10">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="text-center max-w-2xl mx-auto">
                             <h2 className="text-3xl font-bold text-slate-900 mb-4">Built by MoroTech</h2>
@@ -154,7 +154,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* Call to Action */}
-                <section className="bg-slate-900 text-white py-16">
+                <section className="bg-slate-900 text-white py-12">
                     <div className="container mx-auto px-4 md:px-6 text-center">
                         <h2 className="text-3xl font-bold mb-6">Ready to find your scholarship?</h2>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
